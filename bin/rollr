@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'rollr'
+
+puts Rollr::Die.new(ARGV[1].to_i).roll(ARGV[0].to_i)
