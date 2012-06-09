@@ -30,8 +30,10 @@ module Rollr
     # @param [Integer] count
     # @return [Object] integer
     #
-    def roll(count)
-      (1..count).map { |d| rand(self.sides) + 1 }.inject(0) { |total, d| total += d }
+    def roll(count=1)
+      individual_rolls = (1..count).map { |d| rand(self.sides) + 1 }
+      total_roll = individual_rolls.inject(0) { |total, d| total += d }
+      return individual_rolls, total_roll
     end #roll
 
   end #Die
