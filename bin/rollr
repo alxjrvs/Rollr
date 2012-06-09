@@ -2,4 +2,12 @@
 
 require 'rollr'
 
-puts Rollr::Die.new(ARGV[1].to_i).roll(ARGV[0].to_i)
+  a = ARGV[1]
+
+if ARGV[1].include? "d"
+  a = ARGV[1].split(%r[d])[1].to_i
+else
+ puts "Wrong Usage. Proper Usage: rollr [Integer] d[integer]"
+end
+ puts Rollr::Die.new(a.to_i).roll(ARGV[0].to_i)
+
