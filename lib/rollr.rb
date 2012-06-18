@@ -44,6 +44,10 @@ module Rollr
       @rolls.last.total
     end #roll
 
+    def roll_drop_lowest(count=1, drop_die = 0)
+      individual_rolls = (1..count).map { |d| rand(self.sides) + 1 }.sort.drop(drop_die)
+      @rolls << DiceRoll.new(individual_rolls, self.sides, count)
+    end #roll_drop_lowest
   end #Die
 
   #DiceRoll is a class that holds information regarding a single instance of a rolled die.
