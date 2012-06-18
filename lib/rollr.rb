@@ -44,6 +44,14 @@ module Rollr
       @rolls.last.total
     end #roll
 
+    # Roll a new die. This creates a DiceRoll Object, and adds it to the array of rolls from this Die. 
+    # Then, drop the lowest number of die rolls equal to the second argument
+    # Then, return the total of that Roll.
+    #
+    # @param [Integer] count
+    # @param [Integer] drop_die
+    # @return [Integer] The result of the rolls, by way of a DiceRoll object.
+    #
     def roll_drop_lowest(count=1, drop_die = 0)
       individual_rolls = (1..count).map { |d| rand(self.sides) + 1 }.sort.drop(drop_die)
       @rolls << DiceRoll.new(individual_rolls, self.sides, count)
