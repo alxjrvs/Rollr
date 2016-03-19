@@ -1,5 +1,4 @@
-
-require 'rubygems'
+require "rollr/version"
 
 module Rollr
 
@@ -47,4 +46,4 @@ module Rollr
 
 end #Rollr
 
-
+end

@@ -1,14 +1,33 @@
-Gem::Specification.new do |s| 
-  s.name        = 'rollr'
-  s.version     = '0.0.6'
-  s.date        = '2012-06-12'
-  s.summary     = "Rollr: Rand() for the Rest of Us"
-  s.description = "Rollr is a Gem that provides useful functions to simulate the Rolling of Dice... because we weren't social enough as is."
-  s.authors     = ["Alex Jarvis"]
-  s.email       = 'alxjrvs@gmail.com'
-  s.files       = ["lib/rollr.rb"]
-  s.homepage    =
-    'https://github.com/alxjrvs/Rollr'
-  s.executables << 'rollr'
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'rollr/version'
 
+Gem::Specification.new do |spec|
+  spec.name          = "rollr"
+  spec.version       = Rollr::VERSION
+  spec.authors       = ["Alex Jarvis"]
+  spec.email         = ["alxjrvs@gmail.com"]
+
+  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
+  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.license       = "MIT"
+
+  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
+  # delete this section to allow pushing this gem to any host.
+  if spec.respond_to?(:metadata)
+    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+  else
+    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
+  end
+
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.bindir        = "exe"
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
+
+  spec.add_development_dependency "bundler", "~> 1.11"
+  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec", "~> 3.0"
 end
