@@ -1,3 +1,5 @@
+require 'securerandom'
+
 module Rollr
   class Die
     attr_accessor :sides, :rolls
