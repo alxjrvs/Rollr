@@ -18,7 +18,7 @@ module Rollr
     private
 
     def single_roll
-      SecureRandom.random_number(sides)
+      SecureRandom.random_number(sides) + 1
     end
 
     def array_of_rolls(number)
