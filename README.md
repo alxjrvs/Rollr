@@ -100,29 +100,7 @@ Rollr comes pre-packaged with several shortcuts for popular Die sizes:
 > result = Rollr::D12.roll
 #=> <Rollr::RollResult #hash total: 6, rolls: [6], number_of_dice: 1, die_sides: 12>
 
-#D10
-> result = Rollr::D10.roll
-#=> <Rollr::RollResult #hash total: 6, rolls: [6], number_of_dice: 1, die_sides: 12>
-
-#D8
-> result = Rollr::D8.roll
-#=> <Rollr::RollResult #hash total: 6, rolls: [6], number_of_dice: 1, die_sides: 12>
-
-#D6
-> result = Rollr::D6.roll
-#=> <Rollr::RollResult #hash total: 6, rolls: [6], number_of_dice: 1, die_sides: 12>
-
-#D4
-> result = Rollr::D4.roll
-#=> <Rollr::RollResult #hash total: 6, rolls: [6], number_of_dice: 1, die_sides: 12>
-
-#D3
-> result = Rollr::D3.roll
-#=> <Rollr::RollResult #hash total: 6, rolls: [6], number_of_dice: 1, die_sides: 12>
-
-#D2
-> result = Rollr::D2.roll
-#=> <Rollr::RollResult #hash total: 6, rolls: [6], number_of_dice: 1, die_sides: 12>
+#D2-6, D8, and D10! 
 ```
 
 ## Development
