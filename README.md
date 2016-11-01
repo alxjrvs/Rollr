@@ -44,7 +44,7 @@ When you roll a `Die`, you get a `RollResult`.
 #=> <Rollr::RollResult #hash total: 6, rolls: [6], number_of_dice: 1, die_sides: 6>
 ```
 
-You can roll multiple dice of the same kind by passing a number to the `roll` argument with the `number` keyword argument.
+You can roll multiple dice of the same kind by passing a number to the `roll` argument.
 
 ```
 > d6.roll(number: 3)

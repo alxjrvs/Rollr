@@ -8,9 +8,9 @@ module Rollr
       @sides = sides
     end
 
-    def roll(number: 1)
+    def roll(num = 1)
       Rollr::RollResult.new(
-        rolls: rolls(number),
+        rolls: rolls(num),
         sides: sides
       )
     end

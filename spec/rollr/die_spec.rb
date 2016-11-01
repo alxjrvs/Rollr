@@ -7,7 +7,7 @@ describe Rollr::Die do
     let(:die)    { Rollr::Die.new(sides) }
 
     let(:number) { 3 }
-    let(:roll)   { die.roll(number: number) }
+    let(:roll)   { die.roll(number) }
 
     it 'returns a random number from SecureRandom constrained to the number of sides on the die' do
       expect(SecureRandom).to receive(:random_number).with(sides)
