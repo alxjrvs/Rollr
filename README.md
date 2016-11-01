@@ -35,7 +35,7 @@ $ irb
 > d6 = Rollr::Die.new(6)
 ```
 
-When you roll a `Die`, you get a `RollResult`. 
+When you roll a `Die`, you get a `RollResult`.
 
 ```
 > d6.roll
@@ -44,7 +44,7 @@ When you roll a `Die`, you get a `RollResult`.
 #=> <Rollr::RollResult #hash total: 6, rolls: [6], number_of_dice: 1, die_sides: 6>
 ```
 
-You can roll multiple dice of the same kind by passing a number to the `roll` argument with the `number` keyword argument. 
+You can roll multiple dice of the same kind by passing a number to the `roll` argument with the `number` keyword argument.
 
 ```
 > d6.roll(number: 3)
@@ -57,27 +57,27 @@ You can roll multiple dice of the same kind by passing a number to the `roll` ar
 #=> <Rollr::RollResult #hash total: 14, rolls: [2, 6, 6], number_of_dice: 3, die_sides: 6>
 ```
 
-The `RollResult` has few helpful things to report about your roll. 
+The `RollResult` has few helpful things to report about your roll.
 
-The `#total` method represents the sum total of the dice that were rolled: 
+The `#total` method represents the sum total of the dice that were rolled:
 
 ```
 > result.total
 #=> 14
 ```
 
-The `#rolls` array, which reports the individual results of any dice rolled: 
+The `#rolls` array, which reports the individual results of any dice rolled:
 
 ```
 > result.rolls
 #=> [2, 6, 6]
 ```
 
-`#number_of_dice` tells you how many dice were rolled this time: 
+`#number_of_dice` tells you how many dice were rolled this time:
 
 ```
 result.number_of_dice
-#=> 3 
+#=> 3
 ```
 
 `#die_sides` reports the number of sides on the dice rolled in this result:
@@ -85,6 +85,57 @@ result.number_of_dice
 ```
 result.die_sides
 #=> 6
+```
+
+#### Manipulating `RollResult`s
+
+Roll results can be further manipulated after their original creation. To facilitate popular use-cases for Dice rolling, `RollResult`s also include public `#drop_lowest` and `#drop_highest` methods.
+
+`#drop_lowest` returns a new `RollResult` without the lowest numerical die roll.
+
+```
+> result = d6.roll(number: 4)
+#=> <Rollr::RollResult #hash total: 14, rolls: [3, 1, 4, 6], number_of_dice: 4, die_sides: 6>
+
+> result.rolls
+#=> [3, 1, 4, 6]
+
+> result.total
+#=> 14
+
+> new_result = result.drop_lowest
+#=> <Rollr::RollResult #hash total: 13, rolls: [3, 4, 6], number_of_dice: 3, die_sides: 6>
+
+> new_result.rolls
+#=> [3, 4, 6]
+
+> new_result.total
+#=> 13
+```
+
+Similarly, `#drop_highest` will remove the highest number in the `rolls` array.
+
+```
+> new_result = result.drop_highest
+#=> <Rollr::RollResult #hash total: 8, rolls: [3, 1, 4], number_of_dice: 3, die_sides: 6>
+
+> new_result.rolls
+#=> [3, 1, 4]
+
+> new_result.total
+#=> 8
+```
+
+Both `#drop_lowest` and `#drop_highest` can also take an optional integer argument.
+
+```
+> new_result = result.drop_highest(2)
+
+> new_result.rolls
+#=> [3, 1]
+
+> new_result.total
+#=> 4
 ```
 
 ### Dice Constants
@@ -100,7 +151,7 @@ Rollr comes pre-packaged with several shortcuts for popular Die sizes:
 > result = Rollr::D12.roll
 #=> <Rollr::RollResult #hash total: 6, rolls: [6], number_of_dice: 1, die_sides: 12>
 
-#D2-6, D8, and D10! 
+#D2-6, D8, and D10!
 ```
 
 ## Development

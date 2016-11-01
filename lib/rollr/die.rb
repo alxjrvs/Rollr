@@ -6,23 +6,23 @@ module Rollr
 
     def initialize(sides)
       @sides = sides
-    end 
+    end
 
     def roll(number: 1)
       Rollr::RollResult.new(
-        rolls: array_of_rolls(number),
+        rolls: rolls(number),
         sides: sides
       )
-    end 
+    end
 
     private
 
     def single_roll
-      SecureRandom.random_number(sides) + 1
+      SecureRandom.random_number(sides).to_i + 1
     end
 
-    def array_of_rolls(number)
+    def rolls(number)
       (1..number).map { single_roll }
     end
-  end 
+  end
 end

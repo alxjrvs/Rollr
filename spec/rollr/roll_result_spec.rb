@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe Rollr::RollResult do
-  let(:sides)  { 6 } 
-  let(:rolls)  { [2, 6, 6] }
+  let(:sides)  { 6 }
+  let(:rolls)  { [2, 6, 5] }
 
-  let(:result) do 
+  let(:result) do
     Rollr::RollResult.new(
-      sides: sides, 
+      sides: sides,
       rolls: rolls
     )
   end
@@ -15,6 +15,60 @@ describe Rollr::RollResult do
     it 'returns the total of the array of dice' do
       total = rolls.inject(:+)
       expect(result.total).to eq total
+    end
+  end
+
+  describe "#drop_highest" do
+    describe "with an argument n" do
+      let(:num) { 2 }
+      let(:dropped_result) { result.drop_highest(num)}
+      it "removes n highest dice values" do
+        expect(dropped_result.rolls).to match_array [2]
+        expect(dropped_result.total).to eq 2
+      end
+
+      it "returns a RollResult" do
+        expect(dropped_result).to be_a Rollr::RollResult
+      end
+    end
+
+    describe "with no argument" do
+      let(:dropped_result) { result.drop_highest }
+      it "removes the highest dice value" do
+        expect(dropped_result.rolls).to match_array [2, 5]
+        expect(dropped_result.total).to eq 7
+      end
+
+      it "returns a RollResult" do
+        expect(dropped_result).to be_a Rollr::RollResult
+      end
+    end
+  end
+
+  describe "#drop_lowest" do
+    describe "with an argument n" do
+      let(:num) { 2 }
+      let(:dropped_result) { result.drop_lowest(num)}
+      it "removes n lowest dice values" do
+        expect(dropped_result.rolls).to match_array [6]
+        expect(dropped_result.total).to eq 6
+      end
+
+      it "returns a RollResult" do
+        expect(result.drop_lowest(num)).to be_a Rollr::RollResult
+      end
+    end
+
+    describe "with no argument" do
+      let(:dropped_result) { result.drop_lowest }
+      it "removes the lowest dice value" do
+        expect(dropped_result.rolls).to match_array [5, 6]
+        expect(dropped_result.total).to eq 11
+      end
+
+      it "returns a RollResult" do
+        expect(result.drop_lowest).to be_a Rollr::RollResult
+      end
     end
   end
 
