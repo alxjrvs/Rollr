@@ -2,30 +2,21 @@ require 'spec_helper'
 require 'securerandom'
 
 describe Rollr::Die do
-  describe "#roll" do
-    let(:sides)  { 6 }
-    let(:die)    { Rollr::Die.new(sides) }
+  let(:sides)  { 20 }
+  let(:die)    { Rollr::Die.new(sides) }
 
-    let(:number) { 3 }
-    let(:roll)   { die.roll(number) }
+  before do
+  end
 
-    it 'returns a random number from SecureRandom constrained to the number of sides on the die' do
-      expect(SecureRandom).to receive(:random_number).with(sides)
-      die.roll
+  describe ".roll" do
+    let(:weighted_die_roll) { 20 }
+    let(:result)            { die.roll }
+
+    before do
+      allow(SecureRandom).to receive(:random_number){ weighted_die_roll  - 1 }
     end
-
-    describe 'returns a Rollr::RollResult' do
-      it 'every time' do
-        expect(roll).to be_a Rollr::RollResult
-      end
-
-      it 'with an accurate number of dice' do
-        expect(roll.number_of_dice).to eq number
-      end
-
-      it 'with an accurate die sides' do
-        expect(roll.die_sides).to eq sides
-      end
+    it 'returns a random number from SecureRandom constrained to the number of sides on the die' do
+      expect(result.to_i).to eq weighted_die_roll
     end
   end
 end

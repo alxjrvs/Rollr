@@ -1,5 +1,6 @@
 require "rollr/version"
 require "rollr/die"
+require "rollr/roller"
 require "rollr/roll_result"
 
 module Rollr

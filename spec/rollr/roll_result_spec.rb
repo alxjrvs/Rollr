@@ -11,10 +11,17 @@ describe Rollr::RollResult do
     )
   end
 
-  describe "#total" do
+  describe "#to_i" do
     it 'returns the total of the array of dice' do
       total = rolls.inject(:+)
       expect(result.total).to eq total
+    end
+  end
+  
+  describe "#total" do
+    it 'returns the total of the array of dice' do
+      total = rolls.inject(:+)
+      expect(result.to_i).to eq total
     end
   end
 
