@@ -13,7 +13,9 @@ describe Rollr::Die do
     let(:result)            { die.roll }
 
     before do
-      allow(SecureRandom).to receive(:random_number){ weighted_die_roll  - 1 }
+      allow(SecureRandom).to receive(:random_number) do
+        weighted_die_roll  - Rollr::Die::ZERO_INDEX_FIXER
+      end
     end
     it 'returns a random number from SecureRandom constrained to the number of sides on the die' do
       expect(result.to_i).to eq weighted_die_roll

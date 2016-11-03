@@ -3,7 +3,7 @@ require 'support/weighted_die'
 
 describe Rollr::Roller do
   let(:quantity) { 5 }
-  let(:die)      { WeightedDie.new(20) }
+  let(:die)      { WeightedDie.new(result: 20) }
   let(:roller)   do
     Rollr::Roller.new(
       quantity: quantity,

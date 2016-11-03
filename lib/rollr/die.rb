@@ -2,8 +2,9 @@ require 'securerandom'
 
 module Rollr
   class Die
-    ZERO_INDEX_FIXER = 1
     attr_reader :sides
+
+    ZERO_INDEX_FIXER = 1
 
     def initialize(sides)
       @sides = sides

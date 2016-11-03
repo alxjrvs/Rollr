@@ -1,7 +1,7 @@
 class WeightedDie
   attr_reader :sides
 
-  def initialize(result)
+  def initialize(result:)
     @sides = result
   end
 
