@@ -7,10 +7,6 @@ module Rollr
       @rolls = rolls
     end
 
-    def to_i
-      total
-    end
-
     def die_sides
       @sides
     end

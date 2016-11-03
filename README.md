@@ -27,11 +27,7 @@ $ irb
 #=> true
 ```
 
-
-
-
-
-<!-- ### The `Die` Class
+### The `Die` Class
 
 `Rollr` lets you make `Die`, and these `die` can have any number of sides.
 
@@ -156,7 +152,7 @@ Rollr comes pre-packaged with several shortcuts for popular Die sizes:
 #=> <Rollr::RollResult #hash total: 6, rolls: [6], number_of_dice: 1, die_sides: 12>
 
 #D2-6, D8, and D10!
-``` -->
+```
 
 ## Development
 
