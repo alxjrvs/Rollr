@@ -2,6 +2,7 @@ require 'securerandom'
 
 module Rollr
   class Die
+    ZERO_INDEX_FIXER = 1
     attr_accessor :sides, :randomizer
 
     def initialize(sides, randomizer: SecureRandom)
@@ -16,6 +17,10 @@ module Rollr
           die: self
         )
       )
+    end
+
+    def simple_roll
+      randomizer.random_number(sides).to_i + ZERO_INDEX_FIXER
     end
   end
 end

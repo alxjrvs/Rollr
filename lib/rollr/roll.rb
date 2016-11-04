@@ -1,19 +1,17 @@
 module Rollr
   class Roll
-    ZERO_INDEX_FIXER = 1
-    attr_reader :die, :quantity, :sides
+    attr_reader :die, :quantity, :sides, :result
 
     def initialize(die:, quantity:, result: nil)
       @die = die
       @quantity = quantity
-      @randomizer = die.randomizer
       @sides = die.sides
-      @result = result
+      @result = result || roll!
     end
 
     def drop(quantity:,extremity:)
       return new_roll_with(
-        result: Dropper.dropper_for(
+      result: Dropper.dropper_for(
           quantity: quantity,
           extremity: extremity,
           rolls: result
@@ -21,13 +19,7 @@ module Rollr
       )
     end
 
-    def result
-      @result ||= (1..quantity).map { single_roll }
-    end
-
     private
-    attr_reader :randomizer
-
     def new_roll_with(result:)
       return Roll.new(
         die: die,
@@ -36,8 +28,8 @@ module Rollr
       )
     end
 
-    def single_roll
-      randomizer.random_number(sides).to_i + ZERO_INDEX_FIXER
+    def roll!
+      (1..quantity).map { die.simple_roll }
     end
   end
 end

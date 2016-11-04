@@ -26,7 +26,7 @@ module Rollr
     end
 
     def quantity
-      @_number_of_dice ||= rolls.count
+      @_quantity ||= rolls.count
     end
 
     def drop(quantity:, extremity:)
