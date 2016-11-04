@@ -1,4 +1,4 @@
-module Rollr
+module Randsum
   class Filter
     attr_reader :quantity, :rolls
 

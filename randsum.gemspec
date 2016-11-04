@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rollr/version'
+require 'randsum/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "rollr"
-  spec.version       = Rollr::VERSION
+  spec.name          = "randsum"
+  spec.version       = Randsum::VERSION
   spec.authors       = ["Alex Jarvis"]
   spec.email         = ["alxjrvs@gmail.com"]
   spec.summary       = %q{Random Numbers, With Style.}
-  spec.description   = %q{Rollr is a Gem that provides a more familiar interface for generating random numbers - Rolling Dice. Using Rollr, developers can generate psuedorandom numbers securely and succinctly.}
-  spec.homepage      = "http://www.github.com/alxjrvs/rollr"
+  spec.description   = %q{Randsum is a Gem that provides a more familiar interface for generating random numbers - Rolling Dice. Using Randsum, developers can generate psuedorandom numbers securely and succinctly.}
+  spec.homepage      = "http://www.github.com/alxjrvs/randsum"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

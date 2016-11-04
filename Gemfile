@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in rollr.gemspec
+# Specify your gem's dependencies in randsum.gemspec
 gemspec
 gem "codeclimate-test-reporter", group: :test, require: nil

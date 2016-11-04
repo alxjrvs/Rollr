@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Rollr::Filter do
-  let(:filter) { Rollr::Filter.new(quantity: :foo, rolls: []) }
+describe Randsum::Filter do
+  let(:filter) { Randsum::Filter.new(quantity: :foo, rolls: []) }
 
   describe "#filter" do
     it 'raises a NotImplementedError' do

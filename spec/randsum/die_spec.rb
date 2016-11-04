@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Rollr::Die do
-  let(:die)    { Rollr::Die.new(20, randomizer: AlwaysWhatYouGiveIt) }
+describe Randsum::Die do
+  let(:die)    { Randsum::Die.new(20, randomizer: AlwaysWhatYouGiveIt) }
 
   let(:desired_result) { quantity * die.sides  }
 
@@ -25,8 +25,8 @@ describe Rollr::Die do
       expect(roll.to_i).to eq desired_result
     end
 
-    it  'it returns a Rollr::RollReport' do
-      expect(roll).to be_a Rollr::RollReport
+    it  'it returns a Randsum::RollReport' do
+      expect(roll).to be_a Randsum::RollReport
     end
   end
 end

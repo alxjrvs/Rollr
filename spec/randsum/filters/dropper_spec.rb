@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Rollr::Dropper do
-  let(:dropper) { Rollr::Dropper.new(quantity: :foo, rolls: []) }
+describe Randsum::Dropper do
+  let(:dropper) { Randsum::Dropper.new(quantity: :foo, rolls: []) }
 
   describe "#ordered" do
     it 'raises a NotImplementedError' do

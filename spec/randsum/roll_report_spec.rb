@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe Rollr::RollReport do
+describe Randsum::RollReport do
   let(:sides)  { 6 }
-  let(:die)    { Rollr::Die.new(sides) }
+  let(:die)    { Randsum::Die.new(sides) }
   let(:rolls)  { [2, 6, 5] }
-  let(:roll)   { Rollr::Roll.new(result: rolls, die: die, quantity: 3) }
+  let(:roll)   { Randsum::Roll.new(result: rolls, die: die, quantity: 3) }
 
   let(:report) do
-    Rollr::RollReport.new(roll)
+    Randsum::RollReport.new(roll)
   end
 
   let(:total) { rolls.inject(:+) }
@@ -38,7 +38,7 @@ describe Rollr::RollReport do
       end
 
       it "returns a RollReport" do
-        expect(dropped_result).to be_a Rollr::RollReport
+        expect(dropped_result).to be_a Randsum::RollReport
       end
     end
     describe "given a 'highest' extremity" do
@@ -50,7 +50,7 @@ describe Rollr::RollReport do
       end
 
       it "returns a RollReport" do
-        expect(dropped_result).to be_a Rollr::RollReport
+        expect(dropped_result).to be_a Randsum::RollReport
       end
     end
   end
@@ -65,7 +65,7 @@ describe Rollr::RollReport do
       end
 
       it "returns a RollReport" do
-        expect(dropped_result).to be_a Rollr::RollReport
+        expect(dropped_result).to be_a Randsum::RollReport
       end
     end
 
@@ -77,7 +77,7 @@ describe Rollr::RollReport do
       end
 
       it "returns a RollReport" do
-        expect(dropped_result).to be_a Rollr::RollReport
+        expect(dropped_result).to be_a Randsum::RollReport
       end
     end
   end
@@ -92,7 +92,7 @@ describe Rollr::RollReport do
       end
 
       it "returns a RollReport" do
-        expect(report.drop_lowest(num)).to be_a Rollr::RollReport
+        expect(report.drop_lowest(num)).to be_a Randsum::RollReport
       end
     end
 
@@ -104,7 +104,7 @@ describe Rollr::RollReport do
       end
 
       it "returns a RollReport" do
-        expect(report.drop_lowest).to be_a Rollr::RollReport
+        expect(report.drop_lowest).to be_a Randsum::RollReport
       end
     end
   end
@@ -125,7 +125,7 @@ describe Rollr::RollReport do
 
   describe "#die" do
     it 'returns a die object with the correct sides' do
-      expect(report.die).to be_a Rollr::Die
+      expect(report.die).to be_a Randsum::Die
       expect(report.die.sides).to eq 6
     end
   end

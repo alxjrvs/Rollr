@@ -1,4 +1,4 @@
-module Rollr
+module Randsum
   class LowDropper < Dropper
     def ordered
       rolls.sort { |a, b| b <=> a }

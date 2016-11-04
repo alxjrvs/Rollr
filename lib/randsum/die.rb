@@ -1,6 +1,6 @@
 require 'securerandom'
 
-module Rollr
+module Randsum
   class Die
     ZERO_INDEX_FIXER = 1
     attr_accessor :sides, :randomizer
@@ -11,8 +11,8 @@ module Rollr
     end
 
     def roll(quantity = 1)
-      Rollr::RollReport.new(
-        Rollr::Roll.new(
+      Randsum::RollReport.new(
+        Randsum::Roll.new(
           quantity: quantity,
           die: self
         )

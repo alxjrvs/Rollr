@@ -1,4 +1,4 @@
-module Rollr
+module Randsum
   class RollReport
 
     def initialize(roll)
