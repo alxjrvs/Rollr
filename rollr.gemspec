@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alex Jarvis"]
   spec.email         = ["alxjrvs@gmail.com"]
   spec.summary       = %q{Random Numbers, With Style.}
-  spec.description   = %q{Rollr is a Gem that provides a more familiar interface for generating random numbers - Rolling Dice. Using Rollr, developers can generate psuedorandom numbers securely and succinctly.}
+  spec.description   = %q{Rollr has been deprecated, and moved to RANDSUM/randsum. Please use the randsum gem!}
   spec.homepage      = "http://www.github.com/alxjrvs/rollr"
   spec.license       = "MIT"
 

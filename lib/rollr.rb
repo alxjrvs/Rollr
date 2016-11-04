@@ -8,6 +8,7 @@ require "rollr/die"
 require "rollr/roll_report"
 
 module Rollr
+  warn "Rollr is deprecated. Please use 'randsum' Instead! (RANDSUM/randsum on github)" 
 
   D2 = Die.new(2)
   D3 = Die.new(3)

@@ -1,9 +1,6 @@
 # Rollr
-[![Code Climate](https://codeclimate.com/github/alxjrvs/Rollr/badges/gpa.svg)](https://codeclimate.com/github/alxjrvs/Rollr)
-[![Build Status](https://travis-ci.org/alxjrvs/Rollr.svg?branch=master)](https://travis-ci.org/alxjrvs/Rollr)
-[![Test Coverage](https://codeclimate.com/github/alxjrvs/Rollr/badges/coverage.svg)](https://codeclimate.com/github/alxjrvs/Rollr/coverage)
-
-Rollr is a gem that simulates rolling dice.
+## Rollr has been deprecated. Please check out [Randsum](http://github.com/RANDSUM/randsum) for all your Dice-Rolling needs!
+Rollr  a gem that simulates rolling dice.
 
 ## Installation
 
