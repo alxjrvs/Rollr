@@ -7,10 +7,6 @@ module Rollr
       @rolls = rolls
     end
 
-    def remainder
-      rolls.length - quantity
-    end
-
     def filter
       raise NotImplementedError
     end
