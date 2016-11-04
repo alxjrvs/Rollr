@@ -17,8 +17,5 @@ module Rollr
         )
       )
     end
-
-    private
-
   end
 end

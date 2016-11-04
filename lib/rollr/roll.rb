@@ -12,9 +12,7 @@ module Rollr
     end
 
     def drop(quantity:,extremity:)
-      return Roll.new(
-        die: die,
-        quantity: quantity,
+      return new_roll_with(
         result: Dropper.dropper_for(
           quantity: quantity,
           extremity: extremity,
@@ -29,6 +27,14 @@ module Rollr
 
     private
     attr_reader :randomizer
+
+    def new_roll_with(result:)
+      return Roll.new(
+        die: die,
+        quantity: quantity,
+        result: result
+      )
+    end
 
     def single_roll
       randomizer.random_number(sides).to_i + ZERO_INDEX_FIXER
