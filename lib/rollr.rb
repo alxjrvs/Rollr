@@ -1,6 +1,10 @@
 require "rollr/version"
+require "rollr/filters/filter"
+require "rollr/filters/droppers/dropper"
+require "rollr/filters/droppers/high_dropper"
+require "rollr/filters/droppers/low_dropper"
 require "rollr/die"
-require "rollr/roll_result"
+require "rollr/roll_report"
 
 module Rollr
 

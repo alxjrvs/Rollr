@@ -2,14 +2,16 @@ require 'securerandom'
 
 module Rollr
   class Die
-    attr_accessor :sides, :rolls
+    ZERO_INDEX_FIXER = 1
+    attr_accessor :sides, :rolls, :randomizer
 
-    def initialize(sides)
+    def initialize(sides, randomizer: SecureRandom)
       @sides = sides
+      @randomizer = randomizer
     end
 
     def roll(num = 1)
-      Rollr::RollResult.new(
+      Rollr::RollReport.new(
         rolls: rolls(num),
         sides: sides
       )
@@ -18,7 +20,7 @@ module Rollr
     private
 
     def single_roll
-      SecureRandom.random_number(sides).to_i + 1
+      randomizer.random_number(sides).to_i + ZERO_INDEX_FIXER
     end
 
     def rolls(number)
