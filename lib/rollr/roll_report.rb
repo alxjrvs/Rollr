@@ -1,18 +1,24 @@
 module Rollr
   class RollReport
-    attr_reader :rolls
 
-    def initialize(sides:, rolls:)
-      @sides = sides
-      @rolls = rolls
+    def initialize(roll)
+      @roll = roll
     end
 
     def to_i
       total
     end
 
+    def sides
+      die.sides
+    end
+
     def die
-      Die.new(sides)
+      roll.die
+    end
+
+    def rolls
+      @_rolls ||= roll.result
     end
 
     def total
@@ -24,31 +30,24 @@ module Rollr
     end
 
     def drop(quantity:, extremity:)
-      new_report(quantity: quantity, drop: extremity)
+      return RollReport.new(
+        roll.drop(quantity: quantity, extremity: extremity)
+      )
     end
 
     def drop_lowest(quantity = 1)
-      new_report(quantity: quantity, drop: :lowest)
+      return RollReport.new(
+        roll.drop(quantity: quantity, extremity: :lowest)
+      )
     end
 
     def drop_highest(quantity = 1)
-      new_report(quantity: quantity, drop: :highest)
+      return RollReport.new(
+        roll.drop(quantity: quantity, extremity: :highest)
+      )
     end
 
     private
-    attr_reader :sides
-
-    def new_report(quantity:, drop:)
-      return RollReport.new(
-        sides: sides,
-        rolls: ( Dropper.
-          dropper_for(
-            quantity: quantity,
-            extremity: drop,
-            rolls: rolls
-          ).filter
-        )
-      )
-    end
+    attr_reader :roll
   end
 end

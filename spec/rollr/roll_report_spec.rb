@@ -2,13 +2,12 @@ require 'spec_helper'
 
 describe Rollr::RollReport do
   let(:sides)  { 6 }
+  let(:die)    { Rollr::Die.new(sides) }
   let(:rolls)  { [2, 6, 5] }
+  let(:roll)   { Rollr::Roll.new(result: rolls, die: die, quantity: 3) }
 
   let(:report) do
-    Rollr::RollReport.new(
-      sides: sides,
-      rolls: rolls
-    )
+    Rollr::RollReport.new(roll)
   end
 
   let(:total) { rolls.inject(:+) }
